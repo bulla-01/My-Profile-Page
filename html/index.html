@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Profile</title>
+  <link rel="stylesheet" href="style.css"/>
+ <!--  <script defer src="script.js"></script> -->
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo">FRANK</div>
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <a href="#about">About</a>       
+        <a href="CEEZER_Software_GmbH.pdf">Resume</a>
+        <a href="#projects">Portfolio</a>   
+        <a href="#contact">Contact</a>
+		<a href="#">Blog</a>
+		<a href="#">Services</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div class="container hero-container">
+      <div class="hero-left">
+        <p class="welcome-text">Welcome To My Profile Page</p>
+        <h1>Hi I am <span class="highlight">Frank Sarfo</span></h1>
+        <p class="profession">Data Scientist & Data Engineer</p>
+        <p class="description">
+          I am a results-driven Data Scientist and Data Engineer with 5+ years of experience building predictive models, 
+          scalable pipelines, and deploying machine learning systems in production.
+        </p>
+        <div class="hero-buttons">
+          <a href="CEEZER_Software_GmbH.pdf" download class="btn">More About Me</a>
+          <div class="socials">
+            <a href="https://github.com/bulla-01"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub"></a>
+            <a href="https://www.linkedin.com/in/frank-sarfo-13ab96253"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://twitter.com/francbenz92"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="profile-card">
+          <img src="aa.jpg" alt="Frank Sarfo">
+         <!--  <span class="client-badge">$50,000+ client</span> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="projects" class="projects">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <div class="project-grid">
+
+        <div class="project-card">
+          <h3>📈 Mobile Money Fraud Detection</h3>
+          <p>Hybrid LSTM + Random Forest system with a FastAPI backend and dynamic dashboard using Chart.js.</p>
+          <a href="https://yourhostedlink1.com" target="_blank">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>🧠 NLP Pipeline for Sentiment Analysis</h3>
+          <p>Deployed end-to-end pipeline for processing customer reviews using spaCy, HuggingFace Transformers, and Streamlit.</p>
+          <a href="https://yourhostedlink2.com" target="_blank">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>🏗️ Real-Time Data Engineering Pipeline</h3>
+          <p>Kafka + Spark Streaming + Snowflake integration for real-time analytics with Airflow orchestration.</p>
+          <a href="https://yourhostedlink3.com" target="_blank">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>📊 Recession Impact Dashboard</h3>
+          <p>Analyzed historical auto sales data with Python, Pandas, and Plotly Dash to visualize recession effects.</p>
+          <a href="https://yourhostedlink4.com" target="_blank">View Project</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form id="contact-form">
+        <input name="name" placeholder="Your Name" required />
+        <input name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Frank Sarfo | All rights reserved.</p>
+  </footer>
+</body>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  const form = this;
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch('http://localhost:8000/send-email', {
+      method: 'POST',
+      body: formData
+    });
+
+    const result = await response.json();
+    alert(result.message || result.error);
+
+    // ✅ Reset the form if submission is successful
+    if (response.ok) {
+      form.reset();
+    }
+  } catch (err) {
+    alert('Something went wrong. Please try again later.');
+    console.error(err);
+  }
+});
+</script>
+
+</html>
