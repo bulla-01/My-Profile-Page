@@ -16,7 +16,7 @@
         <a href="#">Home</a>
         <a href="#about">About</a>       
         <a href="CEEZER_Software_GmbH.pdf">Resume</a>
-        <a href="#projects">Portfolio</a>   
+        <a href="#projects">Projects</a>   
         <a href="#contact">Contact</a>
 		<a href="#">Blog</a>
 		<a href="#">Services</a>
@@ -59,25 +59,32 @@
       <div class="project-grid">
 
         <div class="project-card">
-          <h3>📈 Mobile Money Fraud Detection</h3>
-          <p>Hybrid LSTM + Random Forest system with a FastAPI backend and dynamic dashboard using Chart.js.</p>
-          <a href="https://yourhostedlink1.com" target="_blank">View Project</a>
+          <h3>📈 Real-Time Mobile Money Fraud Detection API with ML & Rule-Based Alerts</h3>
+          <p>A hybrid fraud detection API that combines rule-based logic and a machine learning model to identify 
+		  suspicious mobile money transactions in real time. Includes email alerts to compliance officers and supports 
+		  smart preprocessing with frequency-based checks.</p>
+          <a href="https://fraud-detection-api-xioa.onrender.com/docs#/" target="_blank">View Project</a>
         </div>
 
         <div class="project-card">
-          <h3>🧠 NLP Pipeline for Sentiment Analysis</h3>
-          <p>Deployed end-to-end pipeline for processing customer reviews using spaCy, HuggingFace Transformers, and Streamlit.</p>
-          <a href="https://yourhostedlink2.com" target="_blank">View Project</a>
+          <h3>🧠 Real-Time Transaction Monitoring</h3>
+          <p>This project is a fully responsive Fraud Detection Dashboard built with vanilla HTML, CSS, and 
+		  JavaScript. It provides a clean and interactive interface for monitoring financial transactions and 
+		  identifying suspicious activity in real-time.</p>
+          <a href="https://fraud-detection-monitoring-dashboard.onrender.com/" target="_blank">View Project</a>
         </div>
 
         <div class="project-card">
-          <h3>🏗️ Real-Time Data Engineering Pipeline</h3>
-          <p>Kafka + Spark Streaming + Snowflake integration for real-time analytics with Airflow orchestration.</p>
-          <a href="https://yourhostedlink3.com" target="_blank">View Project</a>
+          <h3>🏗️ Prototype Mobile Money Application with Integrated Fraud Detection System</h3>
+          <p>This prototype mobile money application is designed to simulate secure financial transactions with real-time 
+		  fraud detection capability. It provides users with a simple, intuitive interface to perform various mobile money 
+		  transactions including transfers, payments, cash-in, and cash-out across multiple mobile network operators (MTN, Vodafone, 
+		  AirtelTigo).</p>
+          <a href="https://momo-app-npcu.onrender.com/" target="_blank">View Project</a>
         </div>
 
         <div class="project-card">
-          <h3>📊 Recession Impact Dashboard</h3>
+          <h3>📊Kafka + Spark Streaming + Snowflake integration for real-time analytics with Airflow orchestration.</h3>
           <p>Analyzed historical auto sales data with Python, Pandas, and Plotly Dash to visualize recession effects.</p>
           <a href="https://yourhostedlink4.com" target="_blank">View Project</a>
         </div>
@@ -110,7 +117,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   const formData = new FormData(form);
 
   try {
-    const response = await fetch('http://localhost:8000/send-email', {
+    const response = await fetch('https://fraud-detection-api-xioa.onrender.com/send-email', {
       method: 'POST',
       body: formData
     });
