@@ -1,16 +1,18 @@
-# Use Nginx base image
-FROM nginx:stable-alpine
 
-# Copy custom Nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Use official Nginx image
+FROM nginx:alpine
 
-# Copy static files to Nginx's public directory
-COPY index.html /usr/share/nginx/html/
-COPY style.css /usr/share/nginx/html/
-COPY images/ /usr/share/nginx/html/images/
+# Remove default Nginx website
+RUN rm -rf /usr/share/nginx/html/*
 
-# Expose port
+# Copy your static site files to Nginx's public directory
+COPY html /usr/share/nginx/html
+
+# Copy custom Nginx config (if you have one)
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+
+# Expose port 80
 EXPOSE 5002
 
-# Start Nginx
+# Start Nginx in foreground
 CMD ["nginx", "-g", "daemon off;"]
